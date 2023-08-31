@@ -19,6 +19,10 @@ const shoppingCartIcon = document.querySelector('.navbar-shopping-cart');
 /* shopping cart */
 const shoppingCart = document.querySelector('#shoppingCartContainer');
 
+const productDetailContainer = document.querySelector('#productDetail');
+
+const productDetailClose = document.querySelector('.product-detail-close');
+
 const cardsContainer = document.querySelector('.cards-container');
 
 
@@ -28,6 +32,7 @@ menuEmail.addEventListener('click', toggleDesktopMenu) //Click Desktop Menu Icon
 
 menuMedia.addEventListener('click', toggleMobileMenu) //Click Mobile Menu Icon
 
+productDetailClose.addEventListener('click',closeProductDetailAside)
 
 shoppingCartIcon.addEventListener('click', toggleShoppingCart) //Click Shopping Cart Icon
 
@@ -62,6 +67,14 @@ function toggleShoppingCart(){
     shoppingCart.classList.toggle('inactive');
 };
 
+function openProductDetailAside(){
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetailAside(){
+    productDetailContainer.classList.add('inactive');
+}
+
 const productList = [];
 productList.push({
     name: 'Bike',
@@ -89,6 +102,10 @@ function renderProducts(arr){
         productCard.classList.add('product-card');
         const productImg = document.createElement('img');
         productImg.setAttribute('src',product.photoURL);
+
+        productImg.addEventListener('click',openProductDetailAside);
+       
+
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
     
