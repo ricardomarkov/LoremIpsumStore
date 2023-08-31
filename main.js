@@ -63,6 +63,13 @@ function toggleMobileMenu(){
     if(!isShoppingCartClosed){
         shoppingCart.classList.add('inactive');
     }
+
+    const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+
+    if(!isProductDetailClosed){
+        closeProductDetailAside()
+    }
+    
     mobileMenu.classList.toggle('inactive');
 };
 
